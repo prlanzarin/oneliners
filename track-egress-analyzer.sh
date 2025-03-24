@@ -19,7 +19,6 @@ declare -a all_matching_entries
 echo "=== Egress entries for affected track IDs ==="
 for track_id in "${track_ids[@]}"; do
     matching_entries=$(grep -E "egress.*$track_id|$track_id.*egress" "$LOG_FILE")
-    
     if [ -n "$matching_entries" ]; then
         while IFS= read -r line; do
             all_matching_entries+=("$line")
